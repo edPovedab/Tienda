@@ -27,8 +27,8 @@
         <url/>
     </scm>
     <properties>
-        <java.version>19</java.version>
-        <maven.compiler.release>19</maven.compiler.release>
+        <java.version>17</java.version>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
     <dependencies>
         <!-- Spring Boot Dependencies -->
@@ -102,6 +102,12 @@
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>9.1.1</version>
+        </dependency>  
+       
     </dependencies>
 
 
@@ -114,7 +120,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                   <compilerArgs>
+                    <compilerArgs>
                         <arg>-Xlint</arg>
                     </compilerArgs>
                 </configuration>
