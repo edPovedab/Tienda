@@ -1,38 +1,36 @@
 package com.tienda.domain;
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
-/**
- *
- * @author Eduardo
- */
-
-@Data
+@Data // generar get and set
 @Entity
-@Table(name = "categoria")
+@Table (name="categoria")
+public class Categoria implements Serializable {
 
-public class Categoria implements Serializable{
-    private static final long serialVersionUID = 1L;
+   
+   private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name="id_categoria")
-    private Long idCategoria;
+    @GeneratedValue (strategy = GenerationType.IDENTITY) 
+    private long idCategoria; //id_categoria
     private String descripcion;
     private String rutaImagen;
     private boolean activo;
     
-    public Categoria (){
+    @OneToMany
+    @JoinColumn (name="idCategoria" , insertable = false, updatable = false)
+    private List<Producto> productos;
+ 
+    public Categoria() {
+        
+    }
     
-    } 
-    public Categoria (String descripcion,String rutaImagen, boolean activo){
-        this.descripcion = descripcion;
+    public Categoria(String descripcion,String rutaImagen, boolean activo) {
+        this.descripcion=descripcion;
         this.rutaImagen = rutaImagen;
         this.activo = activo;
-        
-        
-    } 
+    }
 }
     
