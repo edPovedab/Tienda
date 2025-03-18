@@ -278,5 +278,38 @@
                                     </div>
                                 </div>
                             </section>
+                            
+                            <!-- Fragmento adicional para mostrar el listado detallado de productos -->
+                            <section th:fragment="listadoDetalladoProductos" id="listadoDetallado">
+                                <div class="container">
+                                    <h1>Listado Detallado de Productos</h1>
+                                    <div th:if="${productos != null and !productos.empty}">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Descripción</th>
+                                                    <th>Detalle</th>
+                                                    <th>Precio</th>
+                                                    <th>Categoría</th>
+                                                    <th>Disponibilidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="productos:${producto}">
+                                                    <td th:text="${producto.idProducto}"></td>
+                                                    <td th:text="${producto.descripcion}"></td>
+                                                    <td th:text="${producto.detalle}"></td>
+                                                    <td th:text="${producto.categoria.descripcion}"></td>
+                                                    <td th:text="${producto.existencias > 0 ? 'Disponible' : 'No disponible'}"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="text-center p-2" th:if="${productos == null or productos.empty}">
+                                        <span>No hay productos disponibles.</span>
+                                    </div>
+                                </div>
+                            </section>
                             </body>
-                            </html>
+   </html>
