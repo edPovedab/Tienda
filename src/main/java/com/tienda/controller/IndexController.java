@@ -20,6 +20,7 @@ public class IndexController {
     @RequestMapping("/contacto")
     public String contacto(Model model) {
         //model.addAttribute("attribute", "value");
+        //Long idUsuario = (Long)session.getAttribute("idUsuario");
         return "contacto";
     }
 

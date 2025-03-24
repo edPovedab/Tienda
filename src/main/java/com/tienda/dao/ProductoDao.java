@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProductoDao extends JpaRepository<Producto, Long> {
 
+    //Ejemplo de método utilizando Métodos de Query ordena por descripcion de forma ascendente
     public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup);
 
     //Ejemplo de método utilizando Consultas con JPQL
